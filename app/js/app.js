@@ -18,7 +18,22 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/add.html'
   });
 
+  $stateProvider.state('cart', {
+    url: '/cart',
+    controller: 'CartController',
+    templateUrl: 'templates/cart.html'
+  });
+
 });
+
+// Cart controller
+app.controller('CartController', function ($scope, CartService) {
+
+  $scope.cartItems = CartService.getCartContents();
+  $scope.totalPrice = CartService.subTotal();
+
+});
+
 
 // Add Product Controller
 app.controller('AddProductController', function ($scope, $http) {
@@ -43,6 +58,7 @@ app.controller('StoreFrontController', function ($scope, $http, CartService) {
   var url = 'http://workshop-server.herokuapp.com/collections/timwasdf44asdfasdf';
 
   $scope.cartMessage = '';
+  $scope.ticker = CartService.getCartContents().length;
 
   $http.get(url).then( function (res) {
     $scope.products = res.data;
@@ -51,6 +67,7 @@ app.controller('StoreFrontController', function ($scope, $http, CartService) {
   $scope.addCart = function (product) {
     CartService.addItemToCart(product);
     $scope.cartMessage = product.name + ' added!';
+    $scope.ticker = CartService.getCartContents().length;
   };
 
 });
@@ -68,6 +85,14 @@ app.service('CartService', function () {
       }
     }
     return false;
+  };
+
+  this.subTotal = function () {
+    var subTotal = 0;
+    cart.forEach( function (item) {
+      subTotal += (item.qty * item.price);
+    });
+    return subTotal;
   };
 
   this.getCartContents = function () {
