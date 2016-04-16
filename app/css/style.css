@@ -1,0 +1,26 @@
+body {
+    padding-top: 70px;
+}
+
+.hero-spacer {
+    margin-top: 50px;
+}
+.jumbotron p { margin-bottom: 0;}
+.hero-feature {
+    margin-bottom: 30px;
+}
+.cart {
+  float: right;
+  margin-bottom: -10px;
+}
+.cart .alert {
+  margin-right: 10px;
+}
+
+textarea {
+  margin: 15px 0;
+}
+
+footer {
+    margin: 50px 0;
+}
