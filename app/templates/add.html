@@ -1,0 +1,19 @@
+<h3>Add A Product</h3>
+<hr>
+<form ng-submit="addProduct(product)">
+  <div class="form-group">
+    <input type="text" class="form-control" ng-model="product.name" placeholder="Product Name">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" ng-model="product.image" placeholder="ex: images/01.jpg">
+  </div>
+  <div class="input-group">
+    <div class="input-group-addon">$</div>
+    <input type="text" class="form-control" placeholder="Price" ng-model="product.price">
+    <div class="input-group-addon">.00</div>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+<br>
+<div class="alert alert-success" ng-show="message">{{ message }}</div>

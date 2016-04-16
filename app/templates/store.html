@@ -1,7 +1,21 @@
 <div class="cart">
+  <span class="alert alert-success" ng-show="cartMessage">{{ cartMessage }}</span>
   <i class="glyphicon glyphicon-shopping-cart"></i>
   <a href="/#/cart">Cart Items (0)</a>
 </div>
 <header class="jumbotron hero-spacer">
   <p>Welcome to my online marketplace!</p>
 </header>
+
+<hr>
+<div class="row text-center">
+  <div class="col-md-3 col-sm-6 hero-feature" ng-repeat="product in products">
+    <div class="thumbnail">
+      <img ng-src="{{ product.image }}" alt="{{ product.name }}">
+      <div class="caption">
+        <h3>{{ product.name }}</h3>
+        <p><a href="#" ng-click="addCart(product)" class="btn btn-primary">Buy for ${{ product.price }}</a></p>
+      </div>
+    </div>
+  </div>
+</div>

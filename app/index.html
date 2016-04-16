@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ngWorkshop">
   <head>
     <meta charset="utf-8">
     <title>Cool Store</title>
@@ -9,8 +9,8 @@
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-include="'templates/nav.html'"></nav>
-    <div class="container body-area">AngularJS is cool!</div>
-    <div class="container footer-area"></div>
+    <div class="container body-area" ui-view></div>
+    <div class="container footer-area" ng-include="'templates/footer.html'"></div>
 
     <script src="js/angular.min.js"></script>
     <script src="js/angular-ui-router.min.js"></script>

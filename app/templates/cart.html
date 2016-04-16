@@ -1,0 +1,21 @@
+<h3>Your Cart</h3>
+<hr>
+<table class="table table-striped">
+  <tr>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  <tr ng-hide="cartItems.length">
+    <td colspan="3">Please add something to your cart first!</td>
+  </tr>
+  <tr ng-repeat="item in cartItems" ng-show="cartItems.length">
+    <td>{{ item.name }}</td>
+    <td>{{ item.qty }}</td>
+    <td>${{ item.price }}</td>
+  </tr>
+  <tr class="success">
+    <td colspan="2">Cart Subtotal:</td>
+    <td>${{ totalPrice }}</td>
+  </tr>
+</table>
